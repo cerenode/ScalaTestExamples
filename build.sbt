@@ -4,4 +4,5 @@ version := "0.1-SNAPSHOT"
 
 scalaVersion := "2.10.4"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.4" % "test"
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
