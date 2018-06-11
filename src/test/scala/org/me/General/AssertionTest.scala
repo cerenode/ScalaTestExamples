@@ -7,15 +7,15 @@ class AssertionTest extends FlatSpec {
   // normal assertions
   val left = 2
   val right = 1
-  assert(left == right)  // assertion returning true
+  assert(left != right)  // assertion returning true
 
-  assert(left !=  right)  // assertion returning false
+//  assert(left ==  right)  // assertion returning false
 
 
   //  when operands are lengthy expressions
   val a = 5
   val b = 2
-  assertResult(2) {
+  assertResult(3) {
     a - b
   }
 
