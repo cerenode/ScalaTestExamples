@@ -17,7 +17,7 @@ class FunSpecTestSuite extends FunSpec {
   describe("list access") {
     describe("accessing elements inside list") {
       it("should return element at index if index less than list size") {
-        assert(g.getValueFromIndex(3) == 3)
+        assert(g.getValueFromIndex(3) == 4)
       }
     }
 
