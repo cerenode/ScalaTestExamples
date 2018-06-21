@@ -6,3 +6,4 @@ scalaVersion := "2.10.4"
 
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+//libraryDependencies += "org.apache.spark" %% "spark-core" % "2.3.0"

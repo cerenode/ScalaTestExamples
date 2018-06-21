@@ -3,7 +3,7 @@ package org.me.hotel
 case class Room(number: Int, guest: Option[Guest] = None){ room =>
 
   def isFree(): Boolean =
-    guest.isEmpty
+    !guest.isDefined
 
   def checkin(guest: Guest): Room = {
     require(room.guest.isEmpty, "Room is occupied")

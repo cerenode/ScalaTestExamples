@@ -1,11 +1,13 @@
 package org.me.hotel
 
+import org.scalatest._
+@DoNotDiscover
 class HotelTest extends UnitTest("Hotel") {
 
-  it should "forbid creating a Hotel with no rooms" in {
-    Hotel() // works fine
+  it should "not create a Hotel with no rooms" in {
+
     an [IllegalArgumentException] should be thrownBy {
-      Hotel(rooms = List()) // oops...
+      val hotel = Hotel(rooms = List()) // oops...
     }
   }
 
@@ -16,12 +18,39 @@ class HotelTest extends UnitTest("Hotel") {
     }
   }
 
-  it should "allow checking in" in {
+  it can "allow checking in" in {
     val busyRooms = Hotel()
-      .checkin("Salvatore")
+      .checkin("Name")
       .rooms.filter(room => !room.isFree())
     busyRooms should have size 1
-    busyRooms.forall(_.guest == Option("Salvatore"))
+    busyRooms.forall(_.guest == Option("Name"))
   }
+
+  it should "after checking out all rooms " in {
+    val hotel = new Hotel()
+    val hotel1 = hotel.checkin("gokul")
+
+    val (free, occupied) = hotel1.rooms.partition(_.isFree())
+
+
+    //assume(occupied.length == 2)
+
+    if(occupied.length == 1) {
+      cancel()
+    }
+
+    val room:Room = occupied(0)
+    val hotelAftercheckout = hotel1.checkout(room.number)
+
+    //hotelAftercheckout.rooms should have size  9
+    assertResult(10)(hotelAftercheckout.rooms.size)
+  }
+
+
+
+
+
+
+
 
 }
